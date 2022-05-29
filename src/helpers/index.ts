@@ -5,14 +5,14 @@ export const generateTable = (base: number, list: boolean): string => {
   let output = ''
 
   for (let i = 1; i <= 12; i++) {
-    output += `${base} ${'x'.green} ${i} ${'='.green} ${base * i}\n`
+    output += `${base} x ${i} = ${base * i}\n`
   }
 
   if (list) {
     console.log(colors.green('==================='))
     console.log(colors.blue(`Table # ${base}`))
-    console.log(colors.green('==================='))
-    console.log(output)
+    console.log(colors.green('===================\n'))
+    console.log(output.split('x').join('x'.green).split('=').join('='.green))
   }
 
   return output
