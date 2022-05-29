@@ -15,10 +15,15 @@ export const argv = yargs(hideBin(process.argv))
       default: false,
       describe: 'Use this flag to print the table in console.',
     },
+    t: {
+      alias: 'to',
+      type: 'number',
+      default: 10,
+      describe: 'The table will be generated up to this point.',
+    },
   })
   .check((argv) => {
-    if (isNaN(argv.b) || !Number.isInteger(argv.b))
-      throw 'Base must be an integer number.'
-
+    if (!Number.isInteger(argv.b)) throw 'Base must be an integer number.'
+    if (!Number.isInteger(argv.t)) throw 'To must be an integer number.'
     return true
   }).argv

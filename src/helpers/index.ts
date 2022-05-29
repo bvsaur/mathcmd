@@ -1,10 +1,14 @@
 import fs from 'fs'
 import colors from 'colors'
 
-export const generateTable = (base: number, list: boolean): string => {
+export const generateTable = (
+  base: number,
+  to: number,
+  list: boolean
+): string => {
   let output = ''
 
-  for (let i = 1; i <= 12; i++) {
+  for (let i = 1; i <= to; i++) {
     output += `${base} x ${i} = ${base * i}\n`
   }
 
